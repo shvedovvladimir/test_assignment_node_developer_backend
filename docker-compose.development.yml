@@ -1,0 +1,37 @@
+version: "3.3"
+services:
+  tandb-gateway:
+    build:
+      ./tandb-gateway
+    restart: always
+    env_file:
+      - variables.env
+    volumes:
+      - ./src:/application/src
+    command: ["/application/dev.sh"]
+    entrypoint: ["/application/wait-for-it.sh", "-s" , "-t", "60", "postgres-db:5432", "--"]
+
+  tandb-auth:
+    build:
+      ./tandb-auth
+    restart: always
+    env_file:
+      - variables.env
+    volumes:
+      - ./src:/application/src
+    command: ["/application/dev.sh"]
+    entrypoint: ["/application/wait-for-it.sh", "-s" , "-t", "60", "postgres-db:5432", "--"]
+
+  tandb-vote:
+    build:
+      ./tandb-vote
+    restart: always
+    env_file:
+      - variables.env
+    volumes:
+      - ./src:/application/src
+    command: ["/application/dev.sh"]
+    entrypoint: ["/application/wait-for-it.sh", "-s" , "-t", "60", "postgres-db:5432", "--"]
+
+networks:
+  backend:

@@ -1,0 +1,15 @@
+{
+  "name": "tandb-backend",
+  "version": "0.0.1",
+  "description": "Test assignment for Node.js developer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:shvedovvladimir/test_assignment_node_developer_backend.git"
+  },
+  "author": "shvedovvladimir27@yandex.ru",
+  "license": "ISC"
+}
