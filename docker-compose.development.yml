@@ -4,6 +4,8 @@ services:
     build:
       ./tandb-gateway
     restart: always
+    networks:
+      - backend
     volumes:
       - ./tandb-gateway/src:/application/src
     command: ["/application/dev.sh"]
@@ -12,6 +14,8 @@ services:
     build:
       ./tandb-auth
     restart: always
+    networks:
+      - backend
     volumes:
       - ./tandb-auth/src:/application/src
     command: ["/application/dev.sh"]
@@ -21,6 +25,8 @@ services:
     build:
       ./tandb-vote
     restart: always
+    networks:
+      - backend
     volumes:
       - ./tandb-vote/src:/application/src
     command: ["/application/dev.sh"]
