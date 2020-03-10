@@ -1,9 +1,10 @@
-## For run local:
+## Запуск локально:
 
-2. `make dev-init`
-3. `make dev-up`
+1. `make dev-init`
+2. `make dev-up`
 
-## Dependencies:
+## Зависимости:
 
 1. postrges
 2. nginx
+

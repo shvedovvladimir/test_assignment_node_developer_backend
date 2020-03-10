@@ -4,21 +4,16 @@ services:
     build:
       ./tandb-gateway
     restart: always
-    env_file:
-      - variables.env
     volumes:
-      - ./src:/application/src
+      - ./tandb-gateway/src:/application/src
     command: ["/application/dev.sh"]
-    entrypoint: ["/application/wait-for-it.sh", "-s" , "-t", "60", "postgres-db:5432", "--"]
 
   tandb-auth:
     build:
       ./tandb-auth
     restart: always
-    env_file:
-      - variables.env
     volumes:
-      - ./src:/application/src
+      - ./tandb-auth/src:/application/src
     command: ["/application/dev.sh"]
     entrypoint: ["/application/wait-for-it.sh", "-s" , "-t", "60", "postgres-db:5432", "--"]
 
@@ -26,10 +21,8 @@ services:
     build:
       ./tandb-vote
     restart: always
-    env_file:
-      - variables.env
     volumes:
-      - ./src:/application/src
+      - ./tandb-vote/src:/application/src
     command: ["/application/dev.sh"]
     entrypoint: ["/application/wait-for-it.sh", "-s" , "-t", "60", "postgres-db:5432", "--"]
 

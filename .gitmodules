@@ -1,0 +1,9 @@
+[submodule "tandb-gateway"]
+	path = tandb-gateway
+	url = git@github.com:shvedovvladimir/tandb-gateway.git
+[submodule "tandb-auth"]
+	path = tandb-auth
+	url = git@github.com:shvedovvladimir/tandb-auth.git
+[submodule "tandb-vote"]
+	path = tandb-vote
+	url = git@github.com:shvedovvladimir/tandb-vote.git

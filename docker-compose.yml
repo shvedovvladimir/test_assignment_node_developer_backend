@@ -4,7 +4,7 @@ services:
     build:
       ./tandb-gateway
     env_file:
-      - variables.env
+      - tandb-gateway/variables.env
     ports:
       - "9080:9080"
     networks:
@@ -15,7 +15,7 @@ services:
     build:
       ./tandb-auth
     env_file:
-      - variables.env
+      - tandb-auth/variables.env
     ports:
       - "9081:9081"
     networks:
@@ -26,9 +26,9 @@ services:
     build:
       ./tandb-vote
     env_file:
-      - variables.env
+      - tandb-vote/variables.env
     ports:
-      - "9081:9081"
+      - "9082:9082"
     networks:
       - backend
     command: ["/application/start.sh"]
@@ -36,13 +36,12 @@ services:
   postgres-db:
     image: postgres:12.1-alpine
     restart: always
-    env_file:
-        - variables.env
     networks:
         - backend
     volumes:
         - ./db-data:/var/lib/postgresql/data
-        - ./init-db.sql:/docker-entrypoint-initdb.d/init.sql
+        - ./tandb-auth/init-db.sql:/docker-entrypoint-initdb.d/init-tandb-auth.sql
+        - ./tandb-vote/init-db.sql:/docker-entrypoint-initdb.d/init-tandb-vote.sql
     ports:
         - "5432:5432"
 
