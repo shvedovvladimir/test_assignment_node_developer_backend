@@ -26,7 +26,7 @@
 
 ## Порты:
 
-    - app port: 9080
+    - app ports: 9080, 9081, 9082
     - postgres port: 5432
     - nginx port: 80
 
